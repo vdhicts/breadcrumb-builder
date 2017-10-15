@@ -1,0 +1,23 @@
+{
+    "name": "vdhicts/breadcrumb-builder",
+    "description": "Easily build breadcrumbs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dick van der Heiden",
+            "email": "info@vdhicts.nl"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "vdhicts/html-element": "^1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vdhicts\\BreadcrumbBuilder\\": "src/"
+        }
+    }
+}
