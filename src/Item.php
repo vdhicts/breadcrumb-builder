@@ -45,13 +45,10 @@ class Item
     /**
      * Stores the name.
      * @param string $name
-     * @return $this
      */
-    public function setName(string $name): Item
+    private function setName(string $name)
     {
         $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -75,10 +72,9 @@ class Item
     /**
      * Stores the link.
      * @param string $link
-     * @return Item
      * @throws Exceptions\InvalidLinkException
      */
-    public function setLink(string $link = null): Item
+    private function setLink(string $link = null)
     {
         if (! is_null($link) && ! filter_var($link, FILTER_VALIDATE_URL)) {
             throw new Exceptions\InvalidLinkException(sprintf(
@@ -88,8 +84,6 @@ class Item
         }
 
         $this->link = $link;
-
-        return $this;
     }
 
     /**
@@ -113,12 +107,9 @@ class Item
     /**
      * Stores the icon.
      * @param string $icon
-     * @return $this
      */
-    public function setIcon(string $icon = null): Item
+    private function setIcon(string $icon = null)
     {
         $this->icon = $icon;
-
-        return $this;
     }
 }
