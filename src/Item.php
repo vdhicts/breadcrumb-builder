@@ -77,10 +77,7 @@ class Item
     private function setLink(string $link = null)
     {
         if (! is_null($link) && ! filter_var($link, FILTER_VALIDATE_URL)) {
-            throw new Exceptions\InvalidLinkException(sprintf(
-                'Provided link "%s" should be a valid URL or null',
-                $link
-            ));
+            throw new Exceptions\InvalidLinkException($link);
         }
 
         $this->link = $link;
