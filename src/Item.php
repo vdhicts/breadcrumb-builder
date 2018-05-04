@@ -1,6 +1,6 @@
 <?php
 
-namespace Vdhicts\BreadcrumbBuilder;
+namespace Vdhicts\Dicms\Breadcrumb;
 
 class Item
 {

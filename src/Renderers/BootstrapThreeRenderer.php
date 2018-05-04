@@ -1,11 +1,11 @@
 <?php
 
-namespace Vdhicts\BreadcrumbBuilder\Renderers;
+namespace Vdhicts\Dicms\Breadcrumb\Renderers;
 
-use Vdhicts\BreadcrumbBuilder\Contracts;
-use Vdhicts\BreadcrumbBuilder\Item;
-use Vdhicts\BreadcrumbBuilder\ItemCollection;
-use Vdhicts\HtmlElement\HtmlElement;
+use Vdhicts\Dicms\Breadcrumb\Contracts;
+use Vdhicts\Dicms\Breadcrumb\Item;
+use Vdhicts\Dicms\Breadcrumb\ItemCollection;
+use Vdhicts\Dicms\Html;
 
 class BootstrapThreeRenderer extends BootstrapRenderer implements Contracts\Renderer
 {
@@ -13,11 +13,11 @@ class BootstrapThreeRenderer extends BootstrapRenderer implements Contracts\Rend
      * Generates the breadcrumb item.
      * @param Item $item
      * @param bool $isLast
-     * @return HtmlElement
+     * @return Html\Element
      */
     private function generateItem(Item $item, $isLast = false)
     {
-        $itemHtml = new HtmlElement('li');
+        $itemHtml = new Html\Element('li');
         if ($isLast) {
             $itemHtml->setAttribute('class', 'active');
         }
@@ -46,7 +46,7 @@ class BootstrapThreeRenderer extends BootstrapRenderer implements Contracts\Rend
             return '';
         }
 
-        $breadcrumbHtml = new HtmlElement('ol');
+        $breadcrumbHtml = new Html\Element('ol');
         $breadcrumbHtml->setAttribute('class', 'breadcrumb');
 
         $breadcrumbItemCounter = 1;
