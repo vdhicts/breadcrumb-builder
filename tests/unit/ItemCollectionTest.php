@@ -1,17 +1,17 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Vdhicts\BreadcrumbBuilder;
+use Vdhicts\Dicms\Breadcrumb;
 
 class ItemCollectionTest extends TestCase
 {
     private function getBaseItemCollection()
     {
-        $applicationItem = new BreadcrumbBuilder\Item('Application');
-        $pageItem = new BreadcrumbBuilder\Item('Page', 'http://www.example.com/page', '');
-        $actionItem = new BreadcrumbBuilder\Item('Add', 'http://www.example.com/page/add', 'plus');
+        $applicationItem = new Breadcrumb\Item('Application');
+        $pageItem = new Breadcrumb\Item('Page', 'http://www.example.com/page', '');
+        $actionItem = new Breadcrumb\Item('Add', 'http://www.example.com/page/add', 'plus');
 
-        $itemCollection = new BreadcrumbBuilder\ItemCollection();
+        $itemCollection = new Breadcrumb\ItemCollection();
         $itemCollection->addItem($applicationItem)
             ->addItem($pageItem)
             ->addItem($actionItem);
@@ -23,7 +23,7 @@ class ItemCollectionTest extends TestCase
     {
         $itemCollection = $this->getBaseItemCollection();
 
-        $this->assertInstanceOf(BreadcrumbBuilder\ItemCollection::class, $itemCollection);
+        $this->assertInstanceOf(Breadcrumb\ItemCollection::class, $itemCollection);
     }
 
     public function testItemCollectionCheck()
@@ -31,7 +31,7 @@ class ItemCollectionTest extends TestCase
         $itemCollection = $this->getBaseItemCollection();
         $this->assertTrue($itemCollection->hasItems());
 
-        $emptyItemCollection = new BreadcrumbBuilder\ItemCollection();
+        $emptyItemCollection = new Breadcrumb\ItemCollection();
         $this->assertFalse($emptyItemCollection->hasItems());
     }
 
@@ -45,11 +45,11 @@ class ItemCollectionTest extends TestCase
 
     public function testItemCollectionStoring()
     {
-        $applicationItem = new BreadcrumbBuilder\Item('Application');
-        $pageItem = new BreadcrumbBuilder\Item('Page', 'http://www.example.com/page', '');
-        $actionItem = new BreadcrumbBuilder\Item('Add', 'http://www.example.com/page/add', 'plus');
+        $applicationItem = new Breadcrumb\Item('Application');
+        $pageItem = new Breadcrumb\Item('Page', 'http://www.example.com/page', '');
+        $actionItem = new Breadcrumb\Item('Add', 'http://www.example.com/page/add', 'plus');
 
-        $itemCollection = new BreadcrumbBuilder\ItemCollection();
+        $itemCollection = new Breadcrumb\ItemCollection();
         $itemCollection->setItems([$applicationItem, $pageItem, $actionItem]);
 
         $this->assertSame(3, $itemCollection->count());

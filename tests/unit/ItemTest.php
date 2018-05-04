@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Vdhicts\BreadcrumbBuilder;
+use Vdhicts\Dicms\Breadcrumb;
 
 class ItemTest extends TestCase
 {
@@ -11,9 +11,9 @@ class ItemTest extends TestCase
         $link = 'http://www.google.com';
         $icon = 'google';
 
-        $item = new BreadcrumbBuilder\Item($name, $link, $icon);
+        $item = new Breadcrumb\Item($name, $link, $icon);
 
-        $this->assertInstanceOf(BreadcrumbBuilder\Item::class, $item);
+        $this->assertInstanceOf(Breadcrumb\Item::class, $item);
         $this->assertSame($name, $item->getName());
         $this->assertSame($link, $item->getLink());
         $this->assertTrue($item->hasLink());
@@ -25,9 +25,9 @@ class ItemTest extends TestCase
     {
         $name = 'Google';
 
-        $item = new BreadcrumbBuilder\Item($name);
+        $item = new Breadcrumb\Item($name);
 
-        $this->assertInstanceOf(BreadcrumbBuilder\Item::class, $item);
+        $this->assertInstanceOf(Breadcrumb\Item::class, $item);
         $this->assertSame($name, $item->getName());
         $this->assertNull($item->getLink());
         $this->assertFalse($item->hasLink());
@@ -37,8 +37,8 @@ class ItemTest extends TestCase
 
     public function testItemWithInvalidTarget()
     {
-        $this->expectException(BreadcrumbBuilder\Exceptions\InvalidLinkException::class);
+        $this->expectException(Breadcrumb\Exceptions\InvalidLinkException::class);
 
-        new BreadcrumbBuilder\Item('test', 'test');
+        new Breadcrumb\Item('test', 'test');
     }
 }

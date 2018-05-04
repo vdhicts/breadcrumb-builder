@@ -1,8 +1,8 @@
 <?php
 
-namespace Vdhicts\BreadcrumbBuilder\Contracts;
+namespace Vdhicts\Dicms\Breadcrumb\Contracts;
 
-use Vdhicts\BreadcrumbBuilder\ItemCollection;
+use Vdhicts\Dicms\Breadcrumb\ItemCollection;
 
 interface Renderer
 {

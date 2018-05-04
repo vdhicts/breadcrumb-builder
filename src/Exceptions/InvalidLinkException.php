@@ -1,10 +1,10 @@
 <?php
 
-namespace Vdhicts\BreadcrumbBuilder\Exceptions;
+namespace Vdhicts\Dicms\Breadcrumb\Exceptions;
 
 use Throwable;
 
-class InvalidLinkException extends BreadcrumbBuilderException
+class InvalidLinkException extends BreadcrumbException
 {
     /**
      * InvalidLinkException constructor.

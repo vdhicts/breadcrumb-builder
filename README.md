@@ -4,7 +4,7 @@ This package allows you to easily build a breadcrumb from PHP.
 
 ## Requirements
 
-This package requires PHP 7 and the renderers make use of [vdhicts/htmlelement](https://github.com/vdhicts/html-element).
+This package requires PHP 7 and the renderers make use of [vdhicts/html-element](https://github.com/vdhicts/dicms-html-element).
 
 ## Installation
 
@@ -19,15 +19,15 @@ composer require vdhicts/breadcrumb-builder
 ## Usage
 
 ```php
-use Vdhicts\BreadcrumbBuilder;
+use Vdhicts\Dicms\Breadcrumb;
 
 // Create breadcrumb items
-$applicationItem = new BreadcrumbBuilder\Item('Application', null, 'bars'); // without link, with icon
-$pageItem = new BreadcrumbBuilder\Item('Page', 'http://www.example.com/page'); // with link, without icon
-$actionItem = new BreadcrumbBuilder\Item('Add', 'http://www.example.com/page/add', 'plus'); // with link, with icon
+$applicationItem = new Breadcrumb\Item('Application', null, 'bars'); // without link, with icon
+$pageItem = new Breadcrumb\Item('Page', 'http://www.example.com/page'); // with link, without icon
+$actionItem = new Breadcrumb\Item('Add', 'http://www.example.com/page/add', 'plus'); // with link, with icon
 
 // Start the item collection
-$itemCollection = new BreadcrumbBuilder\ItemCollection();
+$itemCollection = new Breadcrumb\ItemCollection();
 // Add multiple items at once
 $itemCollection->setItems([
 	$applicationItem,
@@ -37,10 +37,10 @@ $itemCollection->setItems([
 $itemCollection->addItem($actionItem);
 
 // Boot the renderer
-$renderer = new BreadcrumbBuilder\Renderers\Bootstrap3();
+$renderer = new Breadcrumb\Renderers\Bootstrap3();
 
 // Boot the builder with the collection and renderer
-$builder = new BreadcrumbBuilder\Builder($itemCollection, $renderer);
+$builder = new Breadcrumb\Builder($itemCollection, $renderer);
 
 // Generate the breadcrumb
 $builder->generate();
@@ -99,6 +99,17 @@ By default a coverage report will be generated in the `build/coverage` folder.
 Any contribution is welcome, but it should be fully tested, meet the PSR-2 standard and please create one pull request 
 per feature. In exchange you will be credited as contributor on this page.
 
+## Security
+
+If you discover any security related issues in this or other packages of Vdhicts, please email info@vdhicts.nl instead
+of using the issue tracker.
+
 ## License
 
-This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+## About vdhicts
+
+[Van der Heiden ICT services](https://www.vdhicts.nl) is the name of my personal company for which I work as
+freelancer. Van der Heiden ICT services develops and implements IT solutions for businesses and educational
+institutions.
